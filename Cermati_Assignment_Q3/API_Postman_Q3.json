@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "c28ab055-bd41-4515-84ec-587fc4f97517",
+		"name": "Cermati_Assignment_Q3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24882319"
+	},
+	"item": [
+		{
+			"name": "API_Postman_Q3",
+			"item": [
+				{
+					"name": "Category - Animals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.publicapis.org/entries?category=Animals",
+							"protocol": "https",
+							"host": [
+								"api",
+								"publicapis",
+								"org"
+							],
+							"path": [
+								"entries"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Animals"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return links - Holidays",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const getdata = pm.response.json().entries\r",
+									"const getholiday = getdata.map(item => {\r",
+									"\r",
+									"    return item.Link\r",
+									"})\r",
+									"\r",
+									"console.log(getholiday)\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.publicapis.org/entries?title=Holidays",
+							"protocol": "https",
+							"host": [
+								"api",
+								"publicapis",
+								"org"
+							],
+							"path": [
+								"entries"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Holidays"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
